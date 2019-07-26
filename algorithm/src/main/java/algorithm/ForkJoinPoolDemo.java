@@ -14,9 +14,9 @@ import java.util.stream.Collectors;
  */
 public class ForkJoinPoolDemo {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         final ExecutorService pool = new ForkJoinPool(Runtime.getRuntime().availableProcessors());
-        List<Integer> list = Lists.newArrayList(1,2,3,4,null);
+        List<Integer> list = Lists.newArrayList(1, 2, 3, 4, null);
         list.parallelStream().forEachOrdered(System.out::println);
 
 //        pool.submit(() -> {

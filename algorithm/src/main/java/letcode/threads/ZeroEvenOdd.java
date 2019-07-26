@@ -24,16 +24,16 @@ public class ZeroEvenOdd {
 
     // printNumber.accept(x) outputs "x", where x is an integer.
     public void zero(IntConsumer printNumber) throws InterruptedException {
-        for(int i = 0; i < n; i ++){
+        for (int i = 0; i < n; i++) {
             lock.lock();
-            if(!zero){
+            if (!zero) {
                 c1.await();
             }
             printNumber.accept(0);
             zero = false;
-            if(count % 2 == 0){
+            if (count % 2 == 0) {
                 c2.signalAll();
-            }else{
+            } else {
                 c3.signalAll();
             }
             lock.unlock();
@@ -41,9 +41,9 @@ public class ZeroEvenOdd {
     }
 
     public void even(IntConsumer printNumber) throws InterruptedException {
-        for(int i = 0; i < n / 2; i ++){
+        for (int i = 0; i < n / 2; i++) {
             lock.lock();
-            if(zero || count % 2 == 1){
+            if (zero || count % 2 == 1) {
                 c2.await();
             }
             printNumber.accept(count);
@@ -56,9 +56,9 @@ public class ZeroEvenOdd {
 
     public void odd(IntConsumer printNumber) throws InterruptedException {
         int l = n % 2 == 0 ? n / 2 : n / 2 + 1;
-        for(int i = 0; i < l; i ++){
+        for (int i = 0; i < l; i++) {
             lock.lock();
-            if(zero || count % 2 == 0){
+            if (zero || count % 2 == 0) {
                 c3.await();
             }
             printNumber.accept(count);

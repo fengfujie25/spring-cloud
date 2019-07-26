@@ -21,7 +21,7 @@ public class FangGeShu {
     public static void print2(int num) {
         long t1 = System.currentTimeMillis();
         for (int i = 1; i <= num; i++) {
-            int start = num*(i - 1) + 1;
+            int start = num * (i - 1) + 1;
             int end = num * i;
             for (int j = start; j <= end; j++) {
                 System.out.print(j + " ");

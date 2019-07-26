@@ -4,7 +4,7 @@ package patterns.decorator;
  * @auther: fujie.feng
  * @DateT: 2019-07-16
  */
-public abstract class DrinkDecorator implements Drink{
+public abstract class DrinkDecorator implements Drink {
 
     private Drink drink;
 

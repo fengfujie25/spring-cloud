@@ -5,6 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * 适配器模式
+ *
  * @auther: fujie.feng
  * @DateT: 2019-07-08
  */

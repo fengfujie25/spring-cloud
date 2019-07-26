@@ -11,7 +11,7 @@ public class Solution {
         int[] result = new int[100];
         int num = 0;
         int size = dominoes.length;
-        int  val;
+        int val;
 
         for (int i = 0; i < size; i++) {
             if (dominoes[i][0] < dominoes[i][1]) {
@@ -30,7 +30,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        int[][] dominoes = new int[][]{{1,2},{1,1},{2,1},{1,2},{1,1},{2,2}};
+        int[][] dominoes = new int[][]{{1, 2}, {1, 1}, {2, 1}, {1, 2}, {1, 1}, {2, 2}};
         System.out.println(Solution.numEquivDominaPairs(dominoes));
     }
 }

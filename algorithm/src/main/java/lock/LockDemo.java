@@ -13,15 +13,13 @@ public class LockDemo {
 
     private static Lock lock = new ReentrantLock();
 
-    public static class Inncr implements Runnable{
+    public static class Inncr implements Runnable {
 
 //        Integer i;
 //
 //        public AddThread(Integer i) {
 //            this.i = i;
 //        }
-
-
 
 
         @Override

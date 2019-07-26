@@ -18,7 +18,7 @@ public class EurekaAppController {
 
 
     @RequestMapping("/hello")
-    public String hello(){
+    public String hello() {
         String services = "Services: " + discoveryClient.getServices();
         System.out.println("spring cloud eureka client --->" + services);
         return services;

@@ -16,6 +16,7 @@ public abstract class Handler {
 
     /**
      * set next handler
+     *
      * @param nextHandler
      */
     public void setNextHandler(Handler nextHandler) {

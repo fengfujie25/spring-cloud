@@ -28,7 +28,7 @@ public class App {
 
     private static final int MAXIMUM_CAPACITY = 1 << 30;
 
-    public static final int tableSizeFor(int cap){
+    public static final int tableSizeFor(int cap) {
         int n = cap - 1;
 
         n |= n >>> 1;

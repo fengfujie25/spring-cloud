@@ -2,6 +2,7 @@ package patterns.decorator;
 
 /**
  * 装饰者模式
+ *
  * @auther: fujie.feng
  * @DateT: 2019-07-16
  */

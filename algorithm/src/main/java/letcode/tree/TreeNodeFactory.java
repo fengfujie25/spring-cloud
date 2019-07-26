@@ -8,6 +8,7 @@ public class TreeNodeFactory {
 
     /**
      * 构建一个树
+     *
      * @param data
      * @return
      */
@@ -25,6 +26,7 @@ public class TreeNodeFactory {
 
     /**
      * 添加树节点
+     *
      * @param root
      * @param val
      * @return
@@ -53,6 +55,7 @@ public class TreeNodeFactory {
 
     /**
      * 前序遍历
+     *
      * @param root
      */
     public void beforeSearch(TreeNode root) {
@@ -66,6 +69,7 @@ public class TreeNodeFactory {
 
     /**
      * 中序遍历
+     *
      * @param root
      */
     public void middleSearch(TreeNode root) {
@@ -79,6 +83,7 @@ public class TreeNodeFactory {
 
     /**
      * 后续遍历
+     *
      * @param root
      */
     public void afterSerach(TreeNode root) {
@@ -92,7 +97,7 @@ public class TreeNodeFactory {
 
     public static void main(String[] args) {
         TreeNodeFactory factory = new TreeNodeFactory();
-        TreeNode node = factory.create(new int[]{6,4,5,1,2,3,46,53});
+        TreeNode node = factory.create(new int[]{6, 4, 5, 1, 2, 3, 46, 53});
         System.out.print("前序遍历：");
         factory.beforeSearch(node);
         System.out.println();
