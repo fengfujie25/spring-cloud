@@ -1,7 +1,12 @@
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
 
 /**
@@ -11,38 +16,15 @@ import java.util.Optional;
 public class App {
 
 
-    private static List<String> list = Lists.newArrayList("aa", "22", "44", "a1", "a2");
+    public static void main(String[] args) throws InterruptedException {
 
-    public static void main(String[] args) {
-        Optional<String> result = list.stream().filter(s -> s.startsWith("a")).reduce((s1, s2) -> s1 + "," + s2);
-
-        result.ifPresent(System.out::println);
-        System.out.println(result.toString());
-
-        System.out.println(App.tableSizeFor(17));
-
-        System.out.println(2 & App.hash(10));
-        System.out.println(App.hash(11));
+        Set<Short> s = Sets.newHashSet();
+        for (short i = 0; i < 100; i++) {
+            s.add(i);
+            s.remove((short)(i - 1));
+        }
+        System.out.println(s.size());
 
     }
-
-    private static final int MAXIMUM_CAPACITY = 1 << 30;
-
-    public static final int tableSizeFor(int cap) {
-        int n = cap - 1;
-
-        n |= n >>> 1;
-        n |= n >>> 2;
-        n |= n >>> 4;
-        n |= n >>> 8;
-        n |= n >>> 16;
-        return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
-    }
-
-    public static final int hash(Object key) {
-        int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
-    }
-
 
 }
