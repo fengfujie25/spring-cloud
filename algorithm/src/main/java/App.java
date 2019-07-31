@@ -6,6 +6,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.PriorityBlockingQueue;
 
 
@@ -15,16 +17,43 @@ import java.util.concurrent.PriorityBlockingQueue;
  */
 public class App {
 
+    private static int a = 0;
+
+    private static volatile int b = 0;
+
+    public static class IntegerTest implements Runnable {
+
+        private int i;
+
+        public IntegerTest(int i) {
+            this.i = i;
+        }
+
+        @Override
+        public void run() {
+            System.out.println(Thread.currentThread().getName() + ":" + i);
+            b = i;
+        }
+    }
+
+
 
     public static void main(String[] args) throws InterruptedException {
 
-        Set<Short> s = Sets.newHashSet();
-        for (short i = 0; i < 100; i++) {
-            s.add(i);
-            s.remove((short)(i - 1));
-        }
-        System.out.println(s.size());
+        new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + ":" + a);
+            a = 1;
+        }).start();
 
+        new Thread(() -> {
+            System.out.println(Thread.currentThread().getName() + ":" + a);
+            if (a == 1) {
+                a = 2;
+            }
+        }).start();
+
+        Thread.sleep(300);
+        System.out.println(a);
     }
 
 }
